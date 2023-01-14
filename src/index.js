@@ -25,9 +25,11 @@ function displayForecast(response) {
   console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
-  let forecastHTML = `<div class="row">`;
-  let days = ["Thu", "Fri", "Sat", "Sun"];
-  days.forEach(function (day) {
+  function displayForecast(response) {
+    let forecast = response.data.daily;
+    let forecastElement = document.querySelector("#forecast");
+    let forecastHTML = `<div class="row">`;
+    forecast.forEach(response);
     forecastHTML =
       forecastHTML +
       `
@@ -44,15 +46,14 @@ function displayForecast(response) {
                 </div>
               </div>
           `;
-  });
-  forecastHTML = forecastHTML + `</div>`;
-  forecastElement.innerHTML = forecastHTML;
-}
+  }
+forecastHTML = forecastHTML + `</div>`;
+forecastElement.innerHTML = forecastHTML;
 
 function getForecast(coordinates) {
   console.log(coordinates);
-  let apiKey = "2daf65f0cdaa917f11026e8a128ce271";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  let apiKey = "bd79ao40tde3dec118ca46bc3e6dd55f";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Cork&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
 
